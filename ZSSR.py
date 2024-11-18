@@ -64,6 +64,9 @@ class ZSSR:
         # Read input image (either ndarray or path)
         self.input = input_img if isinstance(input_img, np.ndarray) else img.imread(input_img)
 
+        if self.input.shape[-1] == 4:  # Check if image has 4 channels
+            self.input = self.input[..., :3]
+
         # Detect if input is grayscale (Y=True) or RGB
         self.Y = True if len(self.input.shape) == 2 else False  # 2D: Grayscale, 3D: RGB
 
