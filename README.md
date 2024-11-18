@@ -1,4 +1,3 @@
-# "Zero-Shot" Super-Resolution using Deep Internal Learning  (ZSSR)
 ### below is original readme from Assaf.
 
 ----------
