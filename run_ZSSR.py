@@ -23,8 +23,10 @@ def main(conf_name, gpu):
     local_dir = os.path.dirname(__file__)
 
     # We take all png files that are not ground truth
-    files = [file_path for file_path in glob.glob('%s/*.png' % conf.input_path)
-             if not file_path[-7:-4] == '_gt']
+    files = [
+        file_path for file_path in glob.glob(f"{conf.input_path}/*")
+        if file_path.endswith(('.png', '.jpg', '.jpeg')) and not file_path[-7:-4] == '_gt'
+    ]
 
     # Loop over all the files
     for file_ind, input_file in enumerate(files):
